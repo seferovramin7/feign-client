@@ -2,7 +2,6 @@ package com.example.demo;
 
 import com.example.demo.client.CompanyApi;
 import com.example.demo.domain.Company;
-import feign.hystrix.HystrixFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,9 +18,14 @@ public class ApiController {
 
 
     @RequestMapping(value = "/companyinfo")
-    public ResponseEntity<?> companyInfo(){
+    public ResponseEntity<?> companyInfo() {
         Company company = companyApi.companyInfo();
-        return new ResponseEntity<>(company,HttpStatus.OK);
+
+        return new ResponseEntity<>(company.getCeo(), HttpStatus.OK);
 
     }
+
+
+
+
 }
