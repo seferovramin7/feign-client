@@ -12,5 +12,4 @@ public interface CarsClient {
     @Headers({ "X-RapidAPI-Key: 42293dc535msh5d2aefd8da94054p164730jsn8fc2847be14a",
             "X-RapidAPI-Host: car-data.p.rapidapi.com" })
     String makes();
-
 }

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.controller;
 
 import com.example.demo.client.CopartApiClient;
 import com.example.demo.copartDto.CopartCar;
@@ -14,10 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CopartController {
 
-
     @Autowired
     private CopartApiClient copartApiClient;
-
 
     @RequestMapping(value = "/copart")
     public ResponseEntity<?> companyInfo() {
@@ -27,10 +25,8 @@ public class CopartController {
         ArrayList<CopartCar> result = new ArrayList<>();
 
         for (CopartCar car : cars) {
-            if (car.getMake().equals("Mazda") && car.getModel().equals("CX-5") &&
-                    car.getOdometer() < 19457) {
+            if (car.getCost_repair() < 20000)
                 result.add(car);
-            }
         }
 
 

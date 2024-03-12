@@ -1,8 +1,9 @@
-package com.example.demo;
+package com.example.demo.controller;
 
 import com.example.demo.client.CarsClient;
 import com.example.demo.domain.CarDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -16,9 +17,11 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class CarsController {
 
+    public CarsController(CarsClient carsClient) {
+        this.carsClient = carsClient;
+    }
 
-    @Autowired
-    private CarsClient carsClient;
+    private final CarsClient carsClient;
 
 
     @RequestMapping(value = "/cars")

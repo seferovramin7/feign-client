@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.controller;
 
 import com.example.demo.client.WikipediaClient;
 import org.springframework.beans.factory.annotation.Autowired;
